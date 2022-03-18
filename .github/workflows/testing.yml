@@ -10,3 +10,11 @@ jobs:
       - run: make setup
       - run: make test
       - run: make lint
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/node@master
+        env:
+          SNYK_TOKEN: ${{ 3a553a62-7faa-4e30-99b8-489b05735dfc }}
